@@ -1,0 +1,8 @@
+<% booking ||= @booking %>
+<% property ||= @property || booking&.property %>
+<%= render 'account/properties/breadcrumbs', property: property %>
+<%= render 'account/shared/breadcrumb', label: t('.label'), url: [:account, property, :bookings] %>
+<% if booking&.persisted? %>
+  <%= render 'account/shared/breadcrumb', label: booking.label_string, url: [:account, booking] %>
+<% end %>
+<%= render 'account/shared/breadcrumbs/actions', only_for: 'bookings' %>

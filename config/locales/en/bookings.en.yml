@@ -1,0 +1,106 @@
+en:
+  bookings: &bookings
+    label: &label Bookings
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Booking
+      create: Create Booking
+      edit: Edit Booking
+      update: Update Booking
+      destroy: Remove Booking
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{booking_name}? This will also remove any child resources and can't be undone.
+    booking:
+      buttons: *buttons
+    fields: &fields
+      id:
+        heading: Booking ID
+      property_id:
+        heading: Property ID
+      start_date_time:
+        _: &start_date_time Start Date Time
+        label: *start_date_time
+        heading: *start_date_time
+      end_date_time:
+        _: &end_date_time End Date Time
+        label: *end_date_time
+        heading: *end_date_time
+      extra_info:
+        _: &extra_info Extra Info
+        label: *extra_info
+        heading: *extra_info
+      access_info:
+        _: &access_info Access Info
+        label: *access_info
+        heading: *access_info
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Bookings"
+      index: "List Bookings"
+      create: "Add a New Booking"
+      member_actions: "Actions for an Individual Booking"
+      show: "Retrieve a Booking"
+      update: "Update a Booking"
+      destroy: "Delete a Booking"
+      fields: *fields
+    index:
+      section: "%{properties_possessive} Bookings"
+      contexts:
+        property:
+          header: Bookings
+          description: Below is a list of Bookings that have been added for %{property_name}.
+          description_empty: No Bookings have been added for %{property_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{booking_name}"
+      header: Booking Details
+      description: Below are the details we have for %{booking_name}.
+      manage_description: You'll also find options for updating these details or removing %{booking_name} from %{property_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Booking for %{property_name}"
+      header: New Booking Details
+      description: Please provide the details of the new Booking you'd like to add to %{property_name}.
+      form: *form
+    edit:
+      section: "%{booking_name}"
+      header: Edit Booking Details
+      description: You can update the details or settings for %{booking_name} below.
+      form: *form
+    notifications:
+      created: Booking was successfully created.
+      updated: Booking was successfully updated.
+      destroyed: Booking was successfully destroyed.
+  account:
+    bookings: *bookings
+  activerecord:
+    attributes:
+      booking:
+        start_date_time: *start_date_time
+        end_date_time: *end_date_time
+        extra_info: *extra_info
+        access_info: *access_info
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at
