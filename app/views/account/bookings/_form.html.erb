@@ -1,0 +1,20 @@
+<% cancel_path ||= booking.persisted? ? [:account, booking] : [:account, @property, :bookings] %>
+
+<%= form_with model: booking, url: (booking.persisted? ? [:account, booking] : [:account, @property, :bookings]), local: true, class: 'form' do |form| %>
+  <%= render "shared/limits/form", form: form, cancel_path: cancel_path do %>
+    <%= render 'account/shared/forms/errors', form: form %>
+
+    <% with_field_settings form: form do %>
+      <%= render 'shared/fields/text_field', method: :start_date_time, options: {autofocus: true} %>
+      <%= render 'shared/fields/text_field', method: :end_date_time %>
+      <%= render 'shared/fields/text_field', method: :extra_info %>
+      <%= render 'shared/fields/text_field', method: :access_info %>
+      <%# 🚅 super scaffolding will insert new fields above this line. %>
+    <% end %>
+
+    <div class="buttons">
+      <%= form.submit (form.object.persisted? ? t('.buttons.update') : t('.buttons.create')), class: "button" %>
+      <%= link_to t('global.buttons.cancel'), cancel_path, class: "button-secondary" %>
+    </div>
+  <% end %>
+<% end %>

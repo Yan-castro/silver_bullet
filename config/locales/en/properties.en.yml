@@ -1,0 +1,96 @@
+en:
+  properties: &properties
+    label: &label Properties
+    breadcrumbs:
+      label: *label
+    navigation:
+      label: *label
+      icon: fal fa-puzzle-piece
+    buttons: &buttons
+      new: Add New Property
+      create: Create Property
+      edit: Edit Property
+      update: Update Property
+      destroy: Remove Property
+      shorthand:
+        edit: Edit
+        destroy: Delete
+      confirmations:
+        # TODO customize for your use-case.
+        destroy: Are you sure you want to remove %{property_name}? This will also remove any child resources and can't be undone.
+    property:
+      buttons: *buttons
+    fields: &fields
+      id:
+        heading: Property ID
+      team_id:
+        heading: Team ID
+      name:
+        _: &name Name
+        label: *name
+        heading: *name
+      description:
+        _: &description Description
+        label: *description
+        heading: *description
+      # 🚅 super scaffolding will insert new fields above this line.
+      created_at:
+        _: &created_at Added
+        label: *created_at
+        heading: *created_at
+      updated_at:
+        _: &updated_at Updated
+        label: *updated_at
+        heading: *updated_at
+    api:
+      collection_actions: "Collection Actions for Properties"
+      index: "List Properties"
+      create: "Add a New Property"
+      member_actions: "Actions for an Individual Property"
+      show: "Retrieve a Property"
+      update: "Update a Property"
+      destroy: "Delete a Property"
+      fields: *fields
+    index:
+      section: "%{teams_possessive} Properties"
+      contexts:
+        team:
+          header: Properties
+          description: Below is a list of Properties that have been added for %{team_name}.
+          description_empty: No Properties have been added for %{team_name}.
+      fields: *fields
+      buttons: *buttons
+    show:
+      section: "%{property_name}"
+      header: Property Details
+      description: Below are the details we have for %{property_name}.
+      manage_description: You'll also find options for updating these details or removing %{property_name} from %{team_name} entirely.
+      fields: *fields
+      buttons: *buttons
+    form: &form
+      buttons: *buttons
+      fields: *fields
+    new:
+      section: "New Property for %{team_name}"
+      header: New Property Details
+      description: Please provide the details of the new Property you'd like to add to %{team_name}.
+      form: *form
+    edit:
+      section: "%{property_name}"
+      header: Edit Property Details
+      description: You can update the details or settings for %{property_name} below.
+      form: *form
+    notifications:
+      created: Property was successfully created.
+      updated: Property was successfully updated.
+      destroyed: Property was successfully destroyed.
+  account:
+    properties: *properties
+  activerecord:
+    attributes:
+      property:
+        name: *name
+        description: *description
+        # 🚅 super scaffolding will insert new activerecord attributes above this line.
+        created_at: *created_at
+        updated_at: *updated_at
